@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "semi": 2,
+    "space-before-function-paren": ["error", "never"]
+  },
+  "env": {
+    "browser": true,
+    "node": false
+  }
+}

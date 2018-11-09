@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web-component:
+    image: node:8
+    container_name: web-component
+    ports: 
+    # webpack-dev-server
+    - "3388:3388"
+    # analyzer web server
+    - "8888"
+    tty: true
+    stdin_open: true
+    working_dir: /app
+    volumes:
+    - "./:/app"

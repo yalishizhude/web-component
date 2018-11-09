@@ -1,0 +1,31 @@
+{
+  "name": "gtx.zip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "delong.zhu",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.8.0",
+    "eslint-loader": "^2.1.1",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.22.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js --port=3388",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "dependencies": {}
+}
