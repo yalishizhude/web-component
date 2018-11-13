@@ -59,6 +59,7 @@ class RootComponent extends Component {
       list: value => {
         this.state.todoList = value.filter(item => !item.isDone);
         this.state.doneList = value.filter(item => item.isDone);
+        console.log('todoList:', this.state.todoList, 'doneList:', this.state.doneList);
       }
     });
   }
@@ -83,7 +84,7 @@ class RootComponent extends Component {
   }
   remove(item, e) {
     e.stopPropagation();
-    const { list } = this.state;
+    const list = [...this.state.list];
     const index = list.findIndex(it => it.id === item.id);
     list.splice(index, 1);
     this.state.list = list;
