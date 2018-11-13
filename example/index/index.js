@@ -1,5 +1,6 @@
 import Component, {defineComponent} from '../../lib/Component';
 import '../../lib/xList';
+import './childDetail';
 import './common.css';
 
 const template = `
@@ -10,7 +11,7 @@ const template = `
   <li x-click="check">
     <span class="va-m checkbox"></span>
     <span class="va-m" x-bind="item.text"></span>
-    <span class="va-m remove" x-click="remove">x</span>
+    <a class="va-m " x-click="detail">detail</a>
   </li>
   <link href="/common.css" rel="stylesheet"/>
   <style>
@@ -27,13 +28,12 @@ const template = `
     }
   </style>
 </x-list>
-</x-list>
 <h1> done list </h1>
 <x-list list="doneList" x-key="id">
   <li x-click="uncheck">
     <span class="va-m checkbox"></span>
     <del class="va-m" x-bind="item.text"></del>
-    <span class="va-m remove" x-click="remove">x</span>
+    <a class="va-m " x-click="detail">detail</a>
   </li>
   <link href="/common.css" rel="stylesheet"/>
   <style>
@@ -51,6 +51,8 @@ const template = `
     }
   </style>
 </x-list>
+<child-detail x-show="todoId" id="todoId" name="todoName" on-remove="remove">
+</child-detail>
 `;
 
 class RootComponent extends Component {
@@ -82,12 +84,18 @@ class RootComponent extends Component {
       return it;
     });
   }
-  remove(item, e) {
+  detail(item, e) {
     e.stopPropagation();
+    this.state.todoId = item.id;
+    this.state.todoName = item.text;
+  }
+  remove(item) {
     const list = [...this.state.list];
     const index = list.findIndex(it => it.id === item.id);
     list.splice(index, 1);
     this.state.list = list;
+    this.state.todoId = '';
+    this.state.todoName = '';
   }
 }
 
