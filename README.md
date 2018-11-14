@@ -5,7 +5,7 @@
 ## 零依赖
 源代码不依赖任何第三方库。
 
-![package.json](,/image/node_modules.png)
+![package.json](image/node_modules.png)
 
 ## 数据绑定
 
