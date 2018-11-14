@@ -1,10 +1,10 @@
 {
-  "name": "gtx.zip",
+  "name": "web-components",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "delong.zhu",
+  "author": "亚里士朱德",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",

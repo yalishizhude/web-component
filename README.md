@@ -1,4 +1,128 @@
-**基于web components技术的无模块依赖demo**
+基于**web components**`shadow dom`、`template`、`custom element`三大技术实现的**无模块依赖**demo。
+
+# 实现功能
+
+## 零依赖
+源代码不依赖任何第三方库。
+
+![package.json](,/image/node_modules.png)
+
+## 数据绑定
+
+单向绑定
+```
+// 模板
+<p x-bind="a"></p>
+
+// 组件
+this.state.a = 'abc'; // => <p x-bind="a">abc</p>
+```
+
+双向绑定
+```
+<input x-model="ipt" />
+<p x-bind="ipt"></p>
+```
+
+## 事件绑定
+
+```
+// 模板
+<button x-click="done">done</button>
+
+// 组件
+class extends Component {
+  done() {
+    ...
+  }
+}
+```
+
+## 父子组件传参
+
+父组件 => 子组件
+```
+// 父组件模板
+<child-component create-time="time"></child-component>
+// 父组件
+class extends Component {
+  constructor() {
+    this.state.time = new Date();
+  }
+}
+
+// 子组件
+class extends Component {
+  constructor(){
+    super(template, {
+      createTime: ''
+    });
+  }
+}
+```
+
+子组件 => 父组件
+```
+// 父组件模板
+<child-component on-select="select"></child-component>
+// 父组件
+class extends Component {
+  select(data) {
+    ...
+  }
+}
+
+// 子组件
+class extends Component {
+  constructor(){
+    super(template, {
+      onSelecet: '&'
+    });
+    ...
+    this.props.onSelect(data);
+  }
+}
+```
+
+## 事件总线
+
+```
+// component a
+
+emit('eventName', data);
+
+// component b
+on('eventName', data => {
+  ...
+});
+```
+
+## 列表
+
+```
+// 组件模板
+<x-list list="projects" x-key="item.id">
+  <li class="a" x-click="click" x-bind="item.name">
+  </li>
+  <style>
+    .a {
+      color: red;
+    }
+  </style>
+</x-list>
+
+// 组件
+class extends Component {
+  constuctor() {
+    super(template, {}, {
+      projects: [{id: 1, name: 'ysl'}]
+    });
+  }
+  click(item) {
+    ...
+  }
+}
+```
 
 # 如何上手
 
@@ -117,4 +241,4 @@ web component是基于shadow dom实现的，所以Component类首先是初始化
 
 # 架构思想
 
-[《》]();
+[《抛开 Vue、React、JQuery 这类第三方js，我们该怎么写代码？》](https://yalishizhude.github.io/2018/11/14/web-components/)
