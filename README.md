@@ -43,11 +43,13 @@ class extends Component {
 父组件 => 子组件
 ```
 // 父组件模板
-<child-component create-time="time"></child-component>
+<child-component create-time="time" finish-time="time2" run-time="time3"></child-component>
 // 父组件
 class extends Component {
   constructor() {
     this.state.time = new Date();
+    this.state.time2 = new Date();
+    this.state.time3 = new Date();
   }
 }
 
@@ -55,7 +57,11 @@ class extends Component {
 class extends Component {
   constructor(){
     super(template, {
-      createTime: ''
+      createTime: '', // 声明属性
+      finishTime: '=', // 直接赋值给state
+      runTime: value => { // 监听数据变化
+        ...
+      }
     });
   }
 }
@@ -241,4 +247,4 @@ web component是基于shadow dom实现的，所以Component类首先是初始化
 
 # 架构思想
 
-[《抛开 Vue、React、JQuery 这类第三方js，我们该怎么写代码？》](https://yalishizhude.github.io/2018/11/14/web-components/)
+[《抛开 Vue、React、JQuery 这类第三方js，我们该怎么写代码？》](https://mp.weixin.qq.com/s/B5Nl7vee9yWdcd_oxn0bXQ)
