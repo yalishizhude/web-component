@@ -248,3 +248,7 @@ web component是基于shadow dom实现的，所以Component类首先是初始化
 # 架构思想
 
 [《抛开 Vue、React、JQuery 这类第三方js，我们该怎么写代码？》](https://mp.weixin.qq.com/s/B5Nl7vee9yWdcd_oxn0bXQ)
+
+---
+
+我的新书[《了不起的JavaScript工程师：从前端到全端高级进阶》](https://item.jd.com/12562349.html)已经在京东上架，旨在帮助初级和中级web前端工程师提升进阶，成为具有全局视野的全能型人才，欢迎选购~
